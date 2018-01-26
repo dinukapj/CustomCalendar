@@ -31,6 +31,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
 
     public MonthAdapter(Context context, ArrayList<Calendar> monthsList) {
         this.monthsList = monthsList;
+        this.context = context;
         mInflater = LayoutInflater.from(context);
     }
 
@@ -44,7 +45,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
     @Override
     public void onBindViewHolder(final MonthViewHolder holder, int position) {
 
-        Calendar month = monthsList.get(position - 1);
+        Calendar month = monthsList.get(position);
 
         int numberOfDaysInMonth = month.getActualMaximum(Calendar.DAY_OF_MONTH);
 
