@@ -192,6 +192,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:background="#ececec"
                     android:weightSum="7">
 
                     <LinearLayout
@@ -396,6 +397,7 @@
                     android:id="@+id/calendar_week_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#fff1f1"
                     android:orientation="horizontal"
                     android:weightSum="7">
 
@@ -601,6 +603,7 @@
                     android:id="@+id/calendar_week_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#ececec"
                     android:orientation="horizontal"
                     android:weightSum="7">
 
@@ -806,6 +809,7 @@
                     android:id="@+id/calendar_week_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#fff1f1"
                     android:orientation="horizontal"
                     android:weightSum="7">
 
@@ -1011,6 +1015,7 @@
                     android:id="@+id/calendar_week_5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#ececec"
                     android:orientation="horizontal"
                     android:weightSum="7">
 
@@ -1216,6 +1221,7 @@
                     android:id="@+id/calendar_week_6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#fff1f1"
                     android:orientation="horizontal"
                     android:weightSum="7">
 
