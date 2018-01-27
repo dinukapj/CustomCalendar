@@ -44,7 +44,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
     }
 
     @Override
-    public void onBindViewHolder(final MonthViewHolder holder, int position) {
+    public void onBindViewHolder(MonthViewHolder holder, int position) {
 
         Calendar month = monthsList.get(position);
 
@@ -59,7 +59,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
         //append the days to their respective columns in the week
 
         //iterate over each week
-        int totalDayCounter = 1;
+        weekIterator:
         for (int weekCount = 1; weekCount < 7; weekCount++) {
 
             switch (weekCount) {
@@ -110,9 +110,9 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
                         break;
                 }
 
-                if (totalDayCounter <= numberOfDaysInMonth) {
+                if (holder.totalDayCounter <= numberOfDaysInMonth) {
 
-                    month.set(Calendar.DATE, totalDayCounter);
+                    month.set(Calendar.DATE, holder.totalDayCounter);
 
                     int dayNumberInWeek = month.get(Calendar.DAY_OF_WEEK);
 
@@ -120,8 +120,8 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
                     holder.tvDay = holder.rlDayChild.findViewWithTag("tvDay");
 
                     if (dayInWeek == dayNumberInWeek) {
-                        
-                        holder.tvDay.setText(String.valueOf(totalDayCounter));
+
+                        holder.tvDay.setText(String.valueOf(holder.totalDayCounter));
                         holder.tvDay.setTextColor(Color.BLACK);
                         holder.rlDayChild.setBackgroundColor(Color.TRANSPARENT);
 
@@ -135,7 +135,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
                             holder.tvDay.setTextColor(Color.BLACK);
                         }
 
-                        totalDayCounter++;
+                        holder.totalDayCounter++;
                     } else {
                         holder.tvDay.setText("");
                         holder.tvDay.setTextColor(Color.TRANSPARENT);
@@ -143,7 +143,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
                     }
 
                 } else {
-                    break;
+                    break weekIterator;
                 }
             }
         }
@@ -160,6 +160,8 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
         public TextView tvDay = null;
         public LinearLayout currentWeekLayout = null;
 
+        int totalDayCounter = 1;
+
         public MonthViewHolder(View view) {
             super(view);
             convertView = view;
@@ -173,6 +175,16 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
             calendar_week_6 = view.findViewById(R.id.calendar_week_6);
         }
 
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override
